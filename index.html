@@ -2,12 +2,10 @@
 <html>
 <head>
     <title>FOV Calculator</title>
+    <link rel="icon" type="image/png" href="favicon.png">
     <script type="text/javascript">
     function calc()
     {
-        // alert("Hello world!");
-        // document.getElementById("hfov").value = document.getElementById("vfov").value;
-
         var width  = document.getElementById("hres").value;
         var height = document.getElementById("vres").value;
 
@@ -20,6 +18,14 @@
         document.getElementById("vfov").value = vfov;
     }
     </script>
+    <style type="text/css">
+    body {
+        font-family: arial;
+    }
+    input[type=number] {
+        width: 50px;
+    }
+    </style>
 </head>
 <body>
 <h1>FOV Calculator</h1>
