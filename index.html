@@ -13,60 +13,80 @@
 
         var vfovRad = 2*Math.atan(Math.tan(hfovRad/2)*height/width);
 
-        var vfov = Math.ceil(vfovRad* 180 / Math.PI);
-
-        document.getElementById("vfov").value = vfov;
+        document.getElementById("vfov").value = Math.ceil(vfovRad* 180 / Math.PI) + "\u00B0";
     }
+
+    function setRes (horz, vert) {
+        document.getElementById("hres").value = horz;
+        document.getElementById("vres").value = vert;
+        calc();
+    }
+
+    window.onload = calc;
     </script>
     <style type="text/css">
     body {
         font-family: arial;
+        width: 400px;
     }
-    input[type=number] {
+    input[type=text], input[type=number] {
         width: 50px;
     }
     </style>
 </head>
 <body>
 <h1>FOV Calculator</h1>
-<form>
-    <table>
-        <tr>
-            <td>
-                <p><label for="hres">Horizontal Resolution / Aspect</label></p>
-            </td>
-            <td>
-                <p><input name="hres" id="hres" type="number" value="1920" onchange="calc()"></p>
-            </td>
-        </tr>
+<form style="">
 
-        <tr>
-            <td>
-                <p><label for="vres">Vertical Resolution / Aspect</label></p>
-            </td>
-            <td>
-                <p><input name="vres" id="vres" type="number" value="1080" onchange="calc()"></p>
-            </td>
-        </tr>
+    <fieldset>
+    <legend>Aspect Ratio Presets</legend>
+        <input type="button" value="16:9"  onclick="setRes(16, 9)">
+        <input type="button" value="16:10" onclick="setRes(16, 10)">
+        <input type="button" value="4:3"   onclick="setRes(4, 3)">
+        <input type="button" value="21:9" onclick="setRes(21, 9)">
+    </fieldset>
+    <br>
+    <fieldset>
+    <legend>Calculator</legend>
+        <table style="text-align:center;">
+            <tr>
+                <td>
+                    <p><label for="hres">Horizontal Resolution / Aspect</label></p>
+                </td>
+                <td>
+                    <p><input name="hres" id="hres" type="number" value="1920" onchange="calc()"></p>
+                </td>
+            </tr>
 
-        <tr>
-            <td>
-                <p><label for="hfov">Horizontal FOV</label></p>
-            </td>
-            <td>
-                <p><input name="hfov" id="hfov" type="number" value="90" onchange="calc()">degrees</p>
-            </td>
-        </tr>
+            <tr>
+                <td>
+                    <p><label for="vres">Vertical Resolution / Aspect</label></p>
+                </td>
+                <td>
+                    <p><input name="vres" id="vres" type="number" value="1080" onchange="calc()"></p>
+                </td>
+            </tr>
 
-        <tr>
-            <td>
-                <p><label for="vfov">Vertical FOV</label></p>
-            </td>
-            <td>
-                <p><input name="vfov" id="vfov" type="number" value="59" onchange="calc()">degrees</p>
-            </td>
-        </tr>
-    </table>
+            <tr>
+                <td>
+                    <p><label for="hfov">Horizontal FOV</label></p>
+                </td>
+                <td>
+                    <p><input name="hfov" id="hfov" type="number" value="90" onchange="hfovslider.value=hfov.value; calc()"></p>
+                    <p><input id="hfovslider" type="range" min="1" max="180" step="1" value="90" onchange="hfov.value=hfovslider.value; calc();"></p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><label for="vfov">Vertical FOV</label></p>
+                </td>
+                <td>
+                    <p><input name="vfov" id="vfov" type="text" readonly></p>
+                </td>
+            </tr>
+        </table>
+    </fieldset>
 </form>
 
 
