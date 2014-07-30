@@ -1,1 +1,49 @@
-Hello World
+<!DOCTYPE html>
+<html>
+<head>
+    <title>FOV Calculator</title>
+    <script type="text/javascript">
+    function calc()
+    {
+        // alert("Hello world!");
+        // document.getElementById("hfov").value = document.getElementById("vfov").value;
+
+        var width  = 1920;
+        var height = 1080;
+
+        var hfov = document.getElementById("hfov").value;
+
+        var hfovRad = hfov * Math.PI / 180;
+
+        var vfovRad = 2*Math.atan(Math.tan(hfovRad/2)*height/width);
+
+        var vfov = Math.ceil(vfovRad* 180 / Math.PI);
+
+        document.getElementById("vfov").value = vfov;
+    }
+    </script>
+</head>
+<body>
+<h1>FOV Calculator</h1>
+<form>
+    <p>
+        <label for="hres">Horizontal Resolution</label>
+        <input name="hres" id="hres" type="number" value="1920" onchange="calc()">px
+    </p>
+    <p>
+        <label for="vres">Vertical Resolution</label>
+        <input name="vres" id="vres" type="number" value="1080" onchange="calc()">px
+    </p>
+    <p>
+        <label for="hfov">Horizontal FOV</label>
+        <input name="hfov" id="hfov" type="number" value="90" onchange="calc()">degrees
+    </p>
+    <p>
+        <label for="vfov">Vertical FOV</label>
+        <input name="vfov" id="vfov" type="number" value="0" onchange="calc()">degrees
+    </p>
+</form>
+
+
+</body>
+</html>
