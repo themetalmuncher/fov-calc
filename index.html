@@ -68,6 +68,9 @@
         height: 20px;
         width: 20px;
     }
+    input[type='range']::-webkit-slider-thumb:active {
+        background-color: #333;
+    }
     </style>
 </head>
 <body>
@@ -116,7 +119,7 @@
                     </td>
                     <td>
                         <p><input name="hfov" min="1" max="180" id="hfov" type="number" value="90" onchange="hfovslider.value=hfov.value; calc()">&deg;</p>
-                        <p><input id="hfovslider" type="range" min="1" max="180" step="1" value="90" onchange="hfov.value=hfovslider.value; calc();"></p>
+                        <p><input id="hfovslider" type="range" min="1" max="180" step="1" value="90" oninput="hfov.value=hfovslider.value; calc();" onchange="hfov.value=hfovslider.value; calc();"></p>
                     </td>
                 </tr>
 
