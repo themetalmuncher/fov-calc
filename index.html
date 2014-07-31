@@ -66,33 +66,18 @@
 </head>
 <body>
     <h1 style="text-align:center">FOV Calculator</h1>
+    <p style="text-align:justify;text-justify:inter-word;">
+    This calculator will convert an aspect ratio and horizontal FOV to a vertical FOV, useful for setting your favorite horizontal FOV in a game that uses vertical FOV. You can use either an aspect ratio, or, if you do not know your screen's aspect ratio, you can input your screen's resolution.
+    </p>
     <form>
         <fieldset>
         <legend>Aspect Ratio Presets</legend>
         <table style="width:100%;">
         <tr style="text-align:center;">
-            <td><input class="aspectButton" type="button" value="16:9"  onclick="setRes(16, 9)" ></td>
-            <td><input class="aspectButton" type="button" value="16:10" onclick="setRes(16, 10)"></td>
-            <td><input class="aspectButton" type="button" value="4:3"   onclick="setRes(4, 3)"  ></td>
-            <td><input class="aspectButton" type="button" value="21:9"  onclick="setRes(21, 9)" ></td>
-        </tr>
-        <tr>
-            <td>
-            e.g.
-            1920x1080
-            </td>
-            <td>
-            e.g.
-            1920x1200
-            </td>
-            <td>
-            e.g.
-            1024*768
-            </td>
-            <td>
-            e.g.
-            2560x1080
-            </td>
+            <td><input class="aspectButton" type="button" value="16:9"  onclick="setRes(16, 9)"  title="e.g. 1920x1080" ></td>
+            <td><input class="aspectButton" type="button" value="16:10" onclick="setRes(16, 10)" title="e.g. 1920x1200"></td>
+            <td><input class="aspectButton" type="button" value="4:3"   onclick="setRes(4, 3)"   title="e.g. 1024x768"></td>
+            <td><input class="aspectButton" type="button" value="21:9"  onclick="setRes(21, 9)"  title="e.g. 2560x1080"></td>
         </tr>
         </table>
         </fieldset>
