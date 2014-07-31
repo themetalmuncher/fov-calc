@@ -46,9 +46,11 @@
         border-radius: 3px;
         background-color: #333;
         color: gainsboro;
-    }
-    .aspectButton:hover {
-        color: white;
+        display: inline-block;
+        font-size: 15px;
+        vertical-align: middle;
+        line-height: 27px;
+        cursor:pointer;
     }
     input[type=text], input[type=number] {
         width: 50px;
@@ -82,13 +84,24 @@
         <fieldset>
         <legend>Aspect Ratio Presets</legend>
         <table style="width:100%;">
-        <tr style="text-align:center;">
-            <td><input class="aspectButton" style="width:54px;height:30px;" type="button" value="16:9"  onclick="setRes(16, 9)"  title="e.g. 1920x1080" ></td>
-            <td><input class="aspectButton" style="width:48px;height:30px;" type="button" value="16:10" onclick="setRes(16, 10)" title="e.g. 1920x1200"></td>
-            <td><input class="aspectButton" style="width:40px;height:30px;" type="button" value="4:3"   onclick="setRes(4, 3)"   title="e.g. 1024x768"></td>
-            <td><input class="aspectButton" style="width:70px;height:30px;" type="button" value="21:9"  onclick="setRes(21, 9)"  title="e.g. 2560x1080"></td>
-            <td><input class="aspectButton" style="width:38px;height:30px;" type="button" value="5:4"   onclick="setRes(5, 4)"   title="e.g. 1280x1024"></td>
-        </tr>
+            <tr style="text-align:center;">
+                <td><div class="aspectButton" style="width:50px;height:27px;" onclick="setRes(16, 9)"  title="e.g. 1920x1080"  >16:9</div></td>
+                <td><div class="aspectButton" style="width:45px;height:27px;" onclick="setRes(16, 10)" title="e.g. 1920x1200"  >16:10</div></td>
+                <td><div class="aspectButton" style="width:67px;height:27px;" onclick="setRes(21, 9)"   title="e.g. 2560x1080" >21:9</div></td>
+                <td><div class="aspectButton" style="width:37px;height:27px;" onclick="setRes(4, 3)"  title="e.g. 1024x768"    >4:3</div></td>
+                <td><div class="aspectButton" style="width:35px;height:27px;" onclick="setRes(5, 4)"   title="e.g. 1280x1024"  >5:4</div></td>
+            </tr>
+        </table>
+        <table style="width:100%;">
+            <tr style="text-align:center;">
+                <td><div onclick="setRes(12, 3)" title="e.g. 3x1024x768"> <div class="aspectButton" style="width:37px;height:27px;">4:3</div><div class="aspectButton" style="width:37px;height:27px;">4:3</div><div class="aspectButton" style="width:37px;height:27px;">4:3</div></div></td>
+                <td><div onclick="setRes(48, 9)" title="e.g. 3x1920x1080"><div class="aspectButton" style="width:51px;height:27px;">16:9</div><div class="aspectButton" style="width:51px;height:27px;">16:9</div><div class="aspectButton" style="width:51px;height:27px;">16:9</div></div></td>
+            </tr>
+        </table>
+        <table style="width:100%;">
+            <tr style="text-align:center;">
+            <td><div onclick="setRes(27, 16)" title="e.g. 3x1920x1080"><div class="aspectButton" style="width:27px;height:51px;line-height:51px;font-size:10px;">16:9</div><div class="aspectButton" style="width:27px;height:51px;line-height:51px;font-size:10px;">16:9</div><div class="aspectButton" style="width:27px;height:51px;line-height:51px;font-size:10px;">16:9</div></div></td>
+            </tr>
         </table>
         </fieldset>
         <br>
