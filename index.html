@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>FOV Calculator</title>
+    <title>H/V FOV Calculator</title>
     <link rel="icon" type="image/png" href="favicon.png">
     <link rel="icon" sizes="196x196" href="bigicon.png">
 
@@ -42,7 +42,13 @@
     }
 
     .aspectButton {
-        padding: 10px;
+        border: 3px solid #111;
+        border-radius: 3px;
+        background-color: #333;
+        color: gainsboro;
+    }
+    .aspectButton:hover {
+        color: white;
     }
     input[type=text], input[type=number] {
         width: 50px;
@@ -65,7 +71,7 @@
     </style>
 </head>
 <body>
-    <h1 style="text-align:center">FOV Calculator</h1>
+    <h1 style="text-align:center">H/V FOV Calculator</h1>
     <p style="text-align:justify;text-justify:inter-word;">
     This calculator will convert an aspect ratio and horizontal FOV to a vertical FOV, useful for setting your favorite horizontal FOV in a game that uses vertical FOV. You can use either an aspect ratio, or, if you do not know your screen's aspect ratio, you can input your screen's resolution.
     </p>
@@ -74,10 +80,11 @@
         <legend>Aspect Ratio Presets</legend>
         <table style="width:100%;">
         <tr style="text-align:center;">
-            <td><input class="aspectButton" type="button" value="16:9"  onclick="setRes(16, 9)"  title="e.g. 1920x1080" ></td>
-            <td><input class="aspectButton" type="button" value="16:10" onclick="setRes(16, 10)" title="e.g. 1920x1200"></td>
-            <td><input class="aspectButton" type="button" value="4:3"   onclick="setRes(4, 3)"   title="e.g. 1024x768"></td>
-            <td><input class="aspectButton" type="button" value="21:9"  onclick="setRes(21, 9)"  title="e.g. 2560x1080"></td>
+            <td><input class="aspectButton" style="width:54px;height:30px;" type="button" value="16:9"  onclick="setRes(16, 9)"  title="e.g. 1920x1080" ></td>
+            <td><input class="aspectButton" style="width:48px;height:30px;" type="button" value="16:10" onclick="setRes(16, 10)" title="e.g. 1920x1200"></td>
+            <td><input class="aspectButton" style="width:40px;height:30px;" type="button" value="4:3"   onclick="setRes(4, 3)"   title="e.g. 1024x768"></td>
+            <td><input class="aspectButton" style="width:70px;height:30px;" type="button" value="21:9"  onclick="setRes(21, 9)"  title="e.g. 2560x1080"></td>
+            <td><input class="aspectButton" style="width:38px;height:30px;" type="button" value="5:4"   onclick="setRes(5, 4)"   title="e.g. 1280x1024"></td>
         </tr>
         </table>
         </fieldset>
