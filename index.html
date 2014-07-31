@@ -19,7 +19,7 @@
 
         var vfovRad = 2*Math.atan(Math.tan(hfovRad/2)*height/width);
 
-        document.getElementById("vfov").value = Math.ceil(vfovRad* 180 / Math.PI) + "\u00B0";
+        document.getElementById("vfov").value = Math.ceil(vfovRad* 180 / Math.PI);
     }
 
     function setRes (horz, vert) {
@@ -43,6 +43,24 @@
 
     .aspectButton {
         padding: 10px;
+    }
+    input[type=text], input[type=number] {
+        width: 50px;
+    }
+    input[type='range'] {
+        -webkit-appearance: none;
+        border-radius: 2px;
+        background-color: #999;
+        height: 4px;
+        vertical-align: middle;
+    }
+    input[type='range']::-webkit-slider-thumb {
+        -webkit-appearance: none !important;
+        border-radius: 20px;
+        background-color: #FFF;
+        border: 1px solid #999;
+        height: 20px;
+        width: 20px;
     }
     </style>
 </head>
@@ -77,7 +95,6 @@
             </td>
         </tr>
         </table>
-
         </fieldset>
         <br>
         <fieldset>
@@ -106,7 +123,7 @@
                         <p><label for="hfov">Horizontal FOV</label></p>
                     </td>
                     <td>
-                        <p><input name="hfov" id="hfov" type="number" value="90" onchange="hfovslider.value=hfov.value; calc()"></p>
+                        <p><input name="hfov" min="1" max="180" id="hfov" type="number" value="90" onchange="hfovslider.value=hfov.value; calc()">&deg;</p>
                         <p><input id="hfovslider" type="range" min="1" max="180" step="1" value="90" onchange="hfov.value=hfovslider.value; calc();"></p>
                     </td>
                 </tr>
@@ -116,7 +133,7 @@
                         <p><label for="vfov">Vertical FOV</label></p>
                     </td>
                     <td>
-                        <p><input name="vfov" id="vfov" type="text" readonly></p>
+                        <p><input name="vfov" id="vfov" type="text" readonly>&deg;</p>
                     </td>
                 </tr>
             </table>
