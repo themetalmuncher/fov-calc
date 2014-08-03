@@ -1,151 +1,150 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>H/V FOV Calculator</title>
-    <link rel="icon" type="image/png" href="favicon.png">
-    <link rel="icon" sizes="196x196" href="bigicon.png">
+  <title>H/V FOV Calculator</title>
+  <link rel="icon" type="image/png" href="icon.png">
+  <link rel="icon" sizes="196x196" href="bigicon.png">
 
-    <link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
 
-    <meta name="viewport" content="width=device-width">
+  <meta name="viewport" content="width=device-width">
 
-    <script type="text/javascript">
-    function calc()
-    {
-        var width  = document.getElementById("hres").value;
-        var height = document.getElementById("vres").value;
+  <script type="text/javascript">
+  function calc()
+  {
+    var width  = document.getElementById("hres").value;
+    var height = document.getElementById("vres").value;
 
-        var hfovRad = document.getElementById("hfov").value * Math.PI / 180;
+    var hfovRad = document.getElementById("hfov").value * Math.PI / 180;
 
-        var vfovRad = 2*Math.atan(Math.tan(hfovRad/2)*height/width);
+    var vfovRad = 2*Math.atan(Math.tan(hfovRad/2)*height/width);
 
-        document.getElementById("vfov").value = Math.ceil(vfovRad* 180 / Math.PI);
-    }
+    document.getElementById("vfov").value = Math.ceil(vfovRad* 180 / Math.PI);
+  }
 
-    function setRes (horz, vert) {
-        document.getElementById("hres").value = horz;
-        document.getElementById("vres").value = vert;
-        calc();
-    }
+  function setRes (horz, vert) {
+    document.getElementById("hres").value = horz;
+    document.getElementById("vres").value = vert;
+    calc();
+  }
 
-    window.onload = calc;
-    </script>
-    <style type="text/css">
-    body {
-      margin-left:         auto;
-      margin-right:        auto;
-      background-color:    gainsboro;
-      max-width:           400px;
-      padding:             0;
-
-      font-family: 'Roboto', sans-serif;
-    }
-
-    .aspectButton {
-        border: 3px solid #111;
-        border-radius: 3px;
-        background-color: #333;
-        color: gainsboro;
-        display: inline-block;
-        font-size: 15px;
-        vertical-align: middle;
-        line-height: 27px;
-        cursor:pointer;
-    }
-    input[type=text], input[type=number] {
-        width: 50px;
-    }
-    input[type='range'] {
-        -webkit-appearance: none;
-        border-radius: 2px;
-        background-color: #999;
-        height: 4px;
-        vertical-align: middle;
-    }
-    input[type='range']::-webkit-slider-thumb {
-        -webkit-appearance: none !important;
-        border-radius: 20px;
-        background-color: #FFF;
-        border: 1px solid #999;
-        height: 20px;
-        width: 20px;
-    }
-    input[type='range']::-webkit-slider-thumb:active {
-        background-color: #333;
-    }
-    </style>
+  window.onload = calc;
+  </script>
+  <style type="text/css">
+  body {
+    margin-left:        auto;
+    margin-right:       auto;
+    background-color:   gainsboro;
+    max-width:          400px;
+    padding:            0;
+    font-family:        'Roboto', sans-serif;
+  }
+  fieldset {
+    border-radius:      5px;
+    border:             3px solid #333
+  }
+  .aspectButton {
+    border:             3px solid #111;
+    border-radius:      3px;
+    background-color:   #333;
+    color:              gainsboro;
+    display:            inline-block;
+    font-size:          15px;
+    vertical-align:     middle;
+    line-height:        27px;
+    cursor:             pointer;
+  }
+  input[type=text], input[type=number] {
+    width:              50px;
+  }
+  input[type='range'] {
+    -webkit-appearance: none;
+    border-radius:      2px;
+    background-color:   #999;
+    height:             4px;
+    vertical-align:     middle;
+  }
+  input[type='range']::-webkit-slider-thumb {
+    -webkit-appearance: none !important;
+    border-radius:      25%;
+    background-color:   #FFF;
+    border:             1px solid #999;
+    height:             20px;
+    width:              20px;
+  }
+  </style>
 </head>
 <body>
-    <h1 style="text-align:center">H/V FOV Calculator</h1>
-    <p style="text-align:justify;text-justify:inter-word;padding:5px;">
-    This calculator will convert an aspect ratio and horizontal FOV to a vertical FOV, useful for setting your favorite horizontal FOV in a game that uses vertical FOV. You can use either an aspect ratio, or, if you do not know your screen's aspect ratio, you can input your screen's resolution.
-    </p>
-    <form>
-        <fieldset>
-        <legend>Aspect Ratio Presets</legend>
-        <table style="width:100%;">
-            <tr style="text-align:center;">
-                <td><div class="aspectButton" style="width:50px;height:27px;" onclick="setRes(16, 9)"  title="e.g. 1920x1080"  >16:9</div></td>
-                <td><div class="aspectButton" style="width:45px;height:27px;" onclick="setRes(16, 10)" title="e.g. 1920x1200"  >16:10</div></td>
-                <td><div class="aspectButton" style="width:67px;height:27px;" onclick="setRes(21, 9)"   title="e.g. 2560x1080" >21:9</div></td>
-                <td><div class="aspectButton" style="width:37px;height:27px;" onclick="setRes(4, 3)"  title="e.g. 1024x768"    >4:3</div></td>
-                <td><div class="aspectButton" style="width:35px;height:27px;" onclick="setRes(5, 4)"   title="e.g. 1280x1024"  >5:4</div></td>
-            </tr>
-        </table>
-        <table style="width:100%;">
-            <tr style="text-align:center;">
-                <td><div onclick="setRes(12, 3)" title="e.g. 3x1024x768"> <div class="aspectButton" style="width:37px;height:27px;">4:3</div><div class="aspectButton" style="width:37px;height:27px;">4:3</div><div class="aspectButton" style="width:37px;height:27px;">4:3</div></div></td>
-                <td><div onclick="setRes(48, 9)" title="e.g. 3x1920x1080"><div class="aspectButton" style="width:51px;height:27px;">16:9</div><div class="aspectButton" style="width:51px;height:27px;">16:9</div><div class="aspectButton" style="width:51px;height:27px;">16:9</div></div></td>
-            </tr>
-        </table>
-        <table style="width:100%;">
-            <tr style="text-align:center;">
-            <td><div onclick="setRes(27, 16)" title="e.g. 3x1920x1080"><div class="aspectButton" style="width:27px;height:51px;line-height:51px;font-size:10px;">16:9</div><div class="aspectButton" style="width:27px;height:51px;line-height:51px;font-size:10px;">16:9</div><div class="aspectButton" style="width:27px;height:51px;line-height:51px;font-size:10px;">16:9</div></div></td>
-            </tr>
-        </table>
-        </fieldset>
-        <br>
-        <fieldset>
-        <legend>Calculator</legend>
-            <table style="text-align:center;">
-                <tr>
-                    <td>
-                        <p><label for="hres">Horizontal Resolution / Aspect</label></p>
-                    </td>
-                    <td>
-                        <p><input name="hres" id="hres" type="number" value="16" onchange="calc()"></p>
-                    </td>
-                </tr>
+  <h1 style="text-align:center">H/V FOV Calculator</h1>
+  <p style="text-align:justify;text-justify:inter-word;padding:5px;">
+  This calculator will convert an aspect ratio and horizontal FOV to a vertical FOV, useful for setting your favorite horizontal FOV in a game that uses vertical FOV. You can use either an aspect ratio, or, if you do not know your screen's aspect ratio, you can input your screen's resolution.
+  </p>
+  <form>
+    <fieldset>
+    <legend>Aspect Ratio Presets</legend>
+    <table style="width:100%;">
+      <tr style="text-align:center;">
+        <td><div class="aspectButton" style="width:50px;height:27px;" onclick="setRes(16, 9)"  title="e.g. 1920x1080"  >16:9</div></td>
+        <td><div class="aspectButton" style="width:45px;height:27px;" onclick="setRes(16, 10)" title="e.g. 1920x1200"  >16:10</div></td>
+        <td><div class="aspectButton" style="width:67px;height:27px;" onclick="setRes(21, 9)"   title="e.g. 2560x1080" >21:9</div></td>
+        <td><div class="aspectButton" style="width:37px;height:27px;" onclick="setRes(4, 3)"  title="e.g. 1024x768"    >4:3</div></td>
+        <td><div class="aspectButton" style="width:35px;height:27px;" onclick="setRes(5, 4)"   title="e.g. 1280x1024"  >5:4</div></td>
+      </tr>
+    </table>
+    <table style="width:100%;">
+      <tr style="text-align:center;">
+        <td><div onclick="setRes(12, 3)" title="e.g. 3x1024x768"> <div class="aspectButton" style="width:37px;height:27px;">4:3</div><div class="aspectButton" style="width:37px;height:27px;">4:3</div><div class="aspectButton" style="width:37px;height:27px;">4:3</div></div></td>
+        <td><div onclick="setRes(48, 9)" title="e.g. 3x1920x1080"><div class="aspectButton" style="width:51px;height:27px;">16:9</div><div class="aspectButton" style="width:51px;height:27px;">16:9</div><div class="aspectButton" style="width:51px;height:27px;">16:9</div></div></td>
+      </tr>
+    </table>
+    <table style="width:100%;">
+      <tr style="text-align:center;">
+      <td><div onclick="setRes(27, 16)" title="e.g. 3x1920x1080"><div class="aspectButton" style="width:27px;height:51px;line-height:51px;font-size:10px;">16:9</div><div class="aspectButton" style="width:27px;height:51px;line-height:51px;font-size:10px;">16:9</div><div class="aspectButton" style="width:27px;height:51px;line-height:51px;font-size:10px;">16:9</div></div></td>
+      </tr>
+    </table>
+    </fieldset>
+    <br>
+    <fieldset>
+    <legend>Calculator</legend>
+      <table style="text-align:center;">
+        <tr>
+          <td>
+            <p><label for="hres">Horizontal Resolution / Aspect</label></p>
+          </td>
+          <td>
+            <p><input name="hres" id="hres" type="number" value="16" onchange="calc()"></p>
+          </td>
+        </tr>
 
-                <tr>
-                    <td>
-                        <p><label for="vres">Vertical Resolution / Aspect</label></p>
-                    </td>
-                    <td>
-                        <p><input name="vres" id="vres" type="number" value="9" onchange="calc()"></p>
-                    </td>
-                </tr>
+        <tr>
+          <td>
+            <p><label for="vres">Vertical Resolution / Aspect</label></p>
+          </td>
+          <td>
+            <p><input name="vres" id="vres" type="number" value="9" onchange="calc()"></p>
+          </td>
+        </tr>
 
-                <tr>
-                    <td>
-                        <p><label for="hfov">Horizontal FOV</label></p>
-                    </td>
-                    <td>
-                        <p><input name="hfov" min="1" max="180" id="hfov" type="number" value="90" onchange="hfovslider.value=hfov.value; calc()">&deg;</p>
-                        <p><input id="hfovslider" type="range" min="1" max="180" step="1" value="90" oninput="hfov.value=hfovslider.value; calc();" onchange="hfov.value=hfovslider.value; calc();"></p>
-                    </td>
-                </tr>
+        <tr>
+          <td>
+            <p><label for="hfov">Horizontal FOV</label></p>
+          </td>
+          <td>
+            <p><input name="hfov" min="1" max="180" id="hfov" type="number" value="90" onchange="hfovslider.value=hfov.value; calc()">&deg;</p>
+            <p><input id="hfovslider" type="range" min="1" max="180" step="1" value="90" oninput="hfov.value=hfovslider.value; calc();" onchange="hfov.value=hfovslider.value; calc();"></p>
+          </td>
+        </tr>
 
-                <tr>
-                    <td>
-                        <p><label for="vfov">Vertical FOV</label></p>
-                    </td>
-                    <td>
-                        <p><input name="vfov" id="vfov" type="text" readonly>&deg;</p>
-                    </td>
-                </tr>
-            </table>
-        </fieldset>
-    </form>
+        <tr>
+          <td>
+            <p><label for="vfov">Vertical FOV</label></p>
+          </td>
+          <td>
+            <p><input name="vfov" id="vfov" type="text" readonly>&deg;</p>
+          </td>
+        </tr>
+      </table>
+    </fieldset>
+  </form>
 </body>
 </html>
